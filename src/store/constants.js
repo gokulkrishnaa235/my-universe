@@ -1,0 +1,5 @@
+export const DO_SEARCH = 'DO_SEARCH'
+export const GET_DETAILS = 'GET_DETAILS'
+export const CLEAR_SEARCH = 'CLEAR_SEARCH'
+export const UPDATE_LOGIN_STATUS = 'UPDATE_LOGIN_STATUS'
+

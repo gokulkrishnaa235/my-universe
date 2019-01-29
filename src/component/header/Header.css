@@ -1,0 +1,23 @@
+.header{
+    width: 100%;
+    background-color: #4CAF50;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Title {
+    color: white;
+    padding: 16px;
+    font-weight: 700;
+    font-size: 30px;
+    height: 60px;
+}
+
+.signout-container {
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px;
+    font-size: 17px;
+}
