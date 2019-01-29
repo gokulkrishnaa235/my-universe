@@ -1,5 +1,5 @@
 
-import { DO_SEARCH, GET_DETAILS, CLEAR_SEARCH, UPDATE_LOGIN_STATUS, ENABLE_LOADER} from './constants'
+import { DO_SEARCH, GET_DETAILS, CLEAR_SEARCH, UPDATE_LOGIN_STATUS } from './constants'
 
 export const doSearch = (param) => {
     return dispatch => {

@@ -11,16 +11,13 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { searchReducer } from './store/reducer' 
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { Loader } from './component/loader/Loader';
+
 
 
 const store = createStore(searchReducer, applyMiddleware(thunk))
 
-const Root = ({ store }) => {
-    if( store.getState().isLoading){
-       return <Loader/>
-    } else {
-    return <Provider store={store}>
+const Root = ({ store }) =>(
+     <Provider store={store}>
       <BrowserRouter>
         <Switch>
             <PrivateRoute path="/search" component={Search} />
@@ -32,8 +29,7 @@ const Root = ({ store }) => {
         </Switch>
       </BrowserRouter>
     </Provider>
-}
-}
+)
 
 function PrivateRoute({ component: Component, ...rest }) {
     return (

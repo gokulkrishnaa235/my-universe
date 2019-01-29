@@ -3,7 +3,7 @@ import './Login.css';
 import { AuthenticatedUsers } from '../../AuthenticatedUsers'
 import { withRouter } from "react-router";
 import { connect } from 'react-redux'
-import { updateLoginStatus, updateLoader } from '../../store/actions'
+import { updateLoginStatus } from '../../store/actions'
 
 class Login extends Component {
 
