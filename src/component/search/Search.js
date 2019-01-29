@@ -27,78 +27,89 @@ class Search extends Component {
   }
 
 
-  componentDidMount () {
-   this.startCounter();
-  }
+componentDidMount () {
+    this.startCounter();
+}
 
 
 
-
-  startCounter(){
-      setInterval(()=> {
-        if(this.state.Timer !== 0){
-            this.setState({
-                Timer: this.state.Timer - 1
-            })
-        }else{
-            this.setState({
-                Timer: 60,
-                NumberOfRequest:15,
-                showModal: false
-            })
-        }
-      }, 1000)
+/**
+ * To maintain the rate limit for non-previlage user
+ */
+startCounter(){
+    setInterval(()=> {
+    if(this.state.Timer !== 0){
+        this.setState({
+            Timer: this.state.Timer - 1
+        })
+    }else{
+        this.setState({
+            Timer: 60,
+            NumberOfRequest:15,
+            showModal: false
+        })
     }
-      
-  handleSearch(e){
-     if(e.target.value) {
-         if(this.state.NumberOfRequest !==0 || this.props.isPrevilageUser){
-            this.setState({
-                searchValue: e.target.value,
-                isloader: true,
-                NumberOfRequest: this.state.NumberOfRequest - 1,
-                showModal: false
-             })
-             this.props.doSearch(e.target.value)
-         }else {
-             this.setState({
-                showModal: true
-             })
+    }, 1000)
+}
 
-         }   
-     }else{
+/**
+ * handleSearch used to handle user search operation
+ * @param {*} e 
+ */
+handleSearch (e){
+    if(e.target.value) {
+        if(this.state.NumberOfRequest !==0 || this.props.isPrevilageUser){
+        this.setState({
+            searchValue: e.target.value,
+            isloader: true,
+            NumberOfRequest: this.state.NumberOfRequest - 1,
+            showModal: false
+            })
+            this.props.doSearch(e.target.value)
+        }else {
+            this.setState({
+            showModal: true
+            })
+
+        }   
+    }else{
         this.setState({
             searchValue: e.target.value
-         })
+            })
         this.props.clearSearch() 
-     }
-  }
+    }
+}
 
-  componentWillReceiveProps(nextProps){   
+componentWillReceiveProps(nextProps){   
     this.setState({
         searchData: nextProps.result,
         details: nextProps.planetDetails
     })
-  }
+}
 
 
-
-  showDetails(url){
+/**
+ * show the detail card data
+ * @param {*} url 
+ */
+showDetails(url){
     this.props.clearSearch()  
     this.props.showDetails(url)
     this.setState({
         searchValue: ""
     })
-  }
-
-  signout(){
+}
+/**
+ * used to sign out the user
+ */
+signout(){
     this.props.updateLoginStatus();
     this.props.history.push("/logout")
-  }
+}
 
 
 
-  render() {
+render() {
     let renderList = null
     if(this.state.searchData.length > 0){
         renderList = this.state.searchData.map((value, index) => {
@@ -131,7 +142,10 @@ class Search extends Component {
     );
   }
 }
-
+/**
+ * to set updated props to state
+ * @param {*} state 
+ */
 const mapStateToProps = state => {
     return {
       result: state.searchResult,
@@ -143,14 +157,17 @@ const mapStateToProps = state => {
   }
   
  
-  
-  const mapDispatchToProps = dispatch => {
+/**
+ * dispatch action to store
+ * @param {*} dispatch 
+ */
+const mapDispatchToProps = dispatch => {
     return {
         doSearch: (payload) => dispatch(doSearch(payload)),
         showDetails: (payload) => dispatch(getDetails(payload)),
         clearSearch: () => dispatch(clearSearch()),
         updateLoginStatus: () => dispatch(updateLoginStatus({isLoggedIn: false, isPrevilageUser: false, userName: ''})),
-  }
-  }
+    }
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

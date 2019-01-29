@@ -19,7 +19,11 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.handleChange = this.handleChange.bind(this);  
   }
-
+  
+/**
+ * handle the submit form action
+ * @param {*} e 
+ */
   handleSubmit(e){
     e.preventDefault()
     AuthenticatedUsers.forEach( value => {
@@ -44,7 +48,10 @@ class Login extends Component {
     })
     
   }
-
+  /**
+   * handle the user inputs 
+   * @param {*} e 
+   */
   handleChange(e){
     this.setState({
       [e.target.name]: e.target.value,
@@ -80,7 +87,10 @@ class Login extends Component {
   }
 }
 
-
+/**
+ * dispatch event redux
+ * @param {*} dispatch 
+ */
 const mapDispatchToProps = dispatch => {
   return {
     updateLoginStatus: (isLoggedIn, isPrevilageUser, userName) => dispatch(updateLoginStatus({isLoggedIn: isLoggedIn, isPrevilageUser: isPrevilageUser, userName: userName})),
