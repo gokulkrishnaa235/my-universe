@@ -122,7 +122,7 @@ render() {
         showModal =  <div class="modal">
         <div class="modal-content">
             <div class="modal-body">
-              {`You Can't do any search for next ${this.state.Timer} seconds`}
+              {`You Can't any search for next ${this.state.Timer} seconds`}
             </div>  
         </div>
     </div>
@@ -131,8 +131,8 @@ render() {
         <div className="search-container">    
             <Header signout={this.signout}/>
             {showModal}
-           {this.props.isPrevilageUser?<div className="userInfoContainer"><b> Hi {this.props.userName},</b> <br/> <i>You are previlage user ! ,</i> <br/> you can do more than 15 search in a minute  </div> : 
-            <div className="userInfoContainer"> <b> Hi {this.props.userName},</b> <br/> <i>You are not previlage user ! ,</i> <br/>{`You do only ${this.state.NumberOfRequest} in next ${this.state.Timer} seconds`} </div> } 
+           {this.props.isPrevilageUser?<div className="userInfoContainer"><b> Hi {this.props.userName},</b> <br/> <i>You are privilege user ! ,</i> <br/> you can do more than 15 search in a minute  </div> : 
+            <div className="userInfoContainer"> <b> Hi {this.props.userName},</b> <br/> <i>You are not privilege user ! ,</i> <br/>{`You do only ${this.state.NumberOfRequest} in next ${this.state.Timer} seconds`} </div> } 
             <input  className="searchInputStyle" disable={this.state.disabled} type="text" placeholder="Search your planet here ..."  value={this.state.searchValue} name="searchData" onChange={this.handleSearch} />
             <div> 
                {renderList}

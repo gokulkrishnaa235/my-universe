@@ -19,21 +19,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `Login Credentials `
 
-        userName:"Luke Skywalker",
+        user name:"Luke Skywalker",
         password: "19BBY",
-        previlageUser: true
+        privilege user: true
    
-        userName:"Darth Vaer",
+        user name:"Darth Vaer",
         password: "18BBY",
-        previlageUser: false
+        privilege user: false
     
-        userName:"Obi Wan",
+        user name:"Obi Wan",
         password: "12BBY",
-        previlageUser: false
+        privilege user: false
 
-        userName:"Han Solo",
+        user name:"Han Solo",
         password: "11BBY",
-        previlageUser: false
+        privilege user: false
 
 Do Login only with following Credentials
 
