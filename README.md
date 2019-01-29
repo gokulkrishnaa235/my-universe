@@ -9,7 +9,8 @@ In the project directory, you can run:
 
 run the following command
 
-npm install
+npm install,
+
 npm start
 
 Runs the app in the development mode.<br>
