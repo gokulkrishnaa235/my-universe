@@ -122,7 +122,7 @@ render() {
         showModal =  <div class="modal">
         <div class="modal-content">
             <div class="modal-body">
-              {`You Can't any search for next ${this.state.Timer} seconds`}
+              {`You Can't do any search for next ${this.state.Timer} seconds`}
             </div>  
         </div>
     </div>
